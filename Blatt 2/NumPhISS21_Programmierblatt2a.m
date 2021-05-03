@@ -1,4 +1,4 @@
-function   [xfine,yfine,c,threshold] = NumPhISS21_Programmierblatt2a(y,M)
+function   [xfine,yfine,c,threshold] = NumPhISS21_Programmierblatt2a(y,M,t)
 
 %%  Numerische Mathematik fuer Physik und Ingenieurwissenschaften SS2021
 %
@@ -9,10 +9,10 @@ function   [xfine,yfine,c,threshold] = NumPhISS21_Programmierblatt2a(y,M)
 %   Programmierblatt 2a
 %   Abgabe bis zum 05.05.2021
 %
-%   Student*in 1: Vorname, Nachname, Matrikelnummer
-%   Student*in 2: Vorname, Nachname, Matrikelnummer
+%   Student*in 1: Elias, Giannopoulos, 220848
+%   Student*in 2: Nicolai, Weitkemper, 220837
 %
-%   Programmversion: z.B. Matlab R2021a oder Octave 6.2.0
+%   Programmversion: Octave 6.2.0
 %
 %% function info
 %  Periodic interpolation of vector data [y(j,1),..,y(j,d)]
@@ -44,10 +44,16 @@ xfine = (1/(M*(n+1))*[0:M*(n)])';
 c = 1/(n+1)*fft(y);   % columnwise fft gives coefficients of interpolant
 
 %% Einfuegen der Rausch-Unterdrueckung
-%...
 
+c_abs = abs(c);
 
+c_sorted = sort(c_abs);
 
+threshold = c_sorted(ceil(length(c) * t));
+
+mask = c_abs > threshold;
+
+c = c .*mask;
 
 %%
 
