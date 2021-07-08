@@ -7,11 +7,11 @@
 %   Programmierblatt 6
 %   Abgabe bis zum 08.07.2021
 %
-%   Student*in 1: Vorname, Nachname, Matrikelnummer
-%   Student*in 2: Vorname, Nachname, Matrikelnummer
+%   Student*in 1: Elias, Giannopoulos, 220848
+%   Student*in 2: Nicolai, Weitkemper, 220837
 %
-%   Programmversion: z.B. Matlab R2021a oder Octave 6.2.0
-%
+%   Programmversion: Octave 6.2.0
+%%
 
 clear all
 close all
